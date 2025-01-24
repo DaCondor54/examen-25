@@ -1,0 +1,4 @@
+
+RUN THIS COMMAND FOR MONGO SERVER LOCAL:
+
+mongod --dbpath . --port 7070

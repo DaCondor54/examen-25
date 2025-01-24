@@ -1,3 +1,74 @@
 <p>entry-page works!</p>
 
 <p>{{someValue}}</p>
+
+<div style="display:flex;flex-direction:column; gap:10px">
+    <div>
+        <label for="name">Name</label>
+        <input id="name" [value]="lego.name" (input)="updateName($event)" />
+        <br/>
+    </div>
+    
+    <div>
+        <label for="color">Color</label>
+        <input id="color" [value]="lego.color" (input)="updateColor($event)" />
+        <br/>
+    </div>
+    
+    <div>
+        <label for="size">Size</label>
+        <select id="size" [value]="lego.size" (change)="updateSize($event)">
+            <option>Small</option>
+            <option>Medium</option>
+            <option>Large</option>
+        </select>
+        <br/>
+    </div>
+    
+    <div>
+        <label for="price">Price</label>
+        <input id="price" type="number" [value]="lego.price" (input)="updatePrice($event)" />
+        <br/>
+    </div>
+    
+    <div>
+        <label for="quantity">Quantity</label>
+        <input id="quantity" type="number" [value]="lego.quantity" (input)="updateQuantity($event)" />
+    </div>
+
+    <div>
+        <button (click)="submitForm()">submit</button>
+    </div>
+
+    <!-- <div>
+        <div [*ngFor="let lego of legos"]>
+            <div style="display:flex; flex-direction:column">
+                <div>Name : {{lego.name}}</div>
+    
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <div>
+        <div *ngFor="let lego of legos">
+            <div style="display:flex; flex-direction:column">
+                    <div> Name {{ lego.name }}</div>
+            </div>
+        </div>
+    </div> -->
+    
+    @for (item of legos; track $index) {
+        
+        <div style="display:flex; flex-direction:column">
+            <h3>Lego {{$index}}</h3>
+            <div> Name {{item.name}}</div>
+            <div> Color {{item.color}}</div>
+            <div> Size {{item.size}}</div>
+            <div> Price {{item.price}}</div>
+            <div> Quantity {{item.quantity}}</div>
+            <br>
+        </div>
+
+    }
+
+</div>
